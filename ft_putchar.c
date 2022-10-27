@@ -6,13 +6,14 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:08:27 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/26 17:08:43 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:05:11 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int c, int *len)
 {
 	write(1, &c, 1);
+	*len = *len +1;
 }

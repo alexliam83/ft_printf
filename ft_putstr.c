@@ -6,18 +6,21 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:10:27 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/26 17:10:44 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:42:47 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, int *len)
 
 {
-	while (*str != '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(*str);
-		str++;
+		ft_putchar(str[i], len);
+		i++;
 	}
 }

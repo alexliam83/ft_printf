@@ -6,25 +6,33 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:56:33 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/26 17:49:25 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:03:36 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_select(va_list args, const char format)
+void	ft_select(va_list args, const char format, int *len)
 {
 	if (format == 'c')
 	{
-		ft_putchar(va_args(args, char));
+		ft_putchar(va_arg(args, int), len);
 	}
 	if (format == 's')
 	{
-		ft_putstr(va_args(args, char *));
+		ft_putstr(va_arg(args, char *), len);
 	}
 	if (format == 'd' || format == 'i')
 	{
-		ft_putnbr(va_args(args, int));
+		ft_putnbr(va_arg(args, long int), len);
+	}
+	if (format == '%')
+	{
+		ft_putchar(va_arg(args, int), len);
+	}
+	if (format == 'u')
+	{
+		ft_putnbr(va_arg(args, unsigned int), len);
 	}
 }
 
@@ -41,14 +49,12 @@ int	ft_printf(const char *pepito, ...)
 	{
 		if (pepito[i] == '%')
 		{
-			ft_select(args, pepito[i + 1]);
-			len++;
+			ft_select(args, pepito[i + 1], &len);
 			i++;
 		}
 		else
 		{
-			write(1, pepito[i + 1], 1);
-			len++;
+			ft_putchar(pepito[i + 1], &len);
 		}
 	i++;
 	}
