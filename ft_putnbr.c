@@ -6,11 +6,11 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:16:14 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/27 12:58:03 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:16:12 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr(int nb, int *len)
 {

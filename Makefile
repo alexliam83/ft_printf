@@ -6,13 +6,13 @@
 #    By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 15:48:01 by alejandg          #+#    #+#              #
-#    Updated: 2022/10/27 10:22:16 by alejandg         ###   ########.fr        #
+#    Updated: 2022/10/31 12:44:40 by alejandg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_puthex.c ft_changesign.c
 
 OBJS = ${SRCS:.c=.o}
 

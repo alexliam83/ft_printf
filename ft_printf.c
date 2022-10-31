@@ -6,34 +6,33 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:56:33 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/27 13:03:36 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/10/31 12:45:47 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_select(va_list args, const char format, int *len)
 {
 	if (format == 'c')
-	{
 		ft_putchar(va_arg(args, int), len);
-	}
 	if (format == 's')
-	{
 		ft_putstr(va_arg(args, char *), len);
-	}
 	if (format == 'd' || format == 'i')
-	{
 		ft_putnbr(va_arg(args, long int), len);
-	}
 	if (format == '%')
-	{
-		ft_putchar(va_arg(args, int), len);
-	}
+		ft_putchar('%', len);
 	if (format == 'u')
+		ft_changesign(va_arg(args, unsigned int), len);
+	if (format == 'x')
+		ft_puthex(va_arg(args, unsigned int), "0123456789abcdef", len);
+	if (format == 'p')
 	{
-		ft_putnbr(va_arg(args, unsigned int), len);
+		ft_putstr("0x", len);
+		ft_puthex(va_arg(args, unsigned long long), "0123456789abcdef", len);
 	}
+	if (format == 'X')
+		ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF", len);
 }
 
 int	ft_printf(const char *pepito, ...)
@@ -54,10 +53,19 @@ int	ft_printf(const char *pepito, ...)
 		}
 		else
 		{
-			ft_putchar(pepito[i + 1], &len);
+			ft_putchar(pepito[i], &len);
 		}
 	i++;
 	}
 	va_end(args);
 	return (len);
 }
+
+// int	main(int nb, char **str)
+// {
+	
+// 	ft_printf("%i", ft_printf("%u", "-10"));
+// 	printf("\n");
+// 	printf("%i", printf("%u", "-10"));
+// 	printf("esto furula");
+// }
