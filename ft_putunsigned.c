@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 11:48:07 by alejandg          #+#    #+#             */
-/*   Updated: 2022/11/02 10:18:40 by alejandg         ###   ########.fr       */
+/*   Created: 2022/10/31 12:42:28 by alejandg          #+#    #+#             */
+/*   Updated: 2022/11/02 10:20:44 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const	*pepito, ...);
-void	ft_putchar(char c, int *len);
-void	ft_putstr(char *str, int *len);
-void	ft_putnbr(int nb, int *len);
-void	ft_puthex(unsigned long long nb, char *base, int *len);
-void	ft_putunsigned(unsigned int nb, int *len);
-
-#endif
+void	ft_putunsigned(unsigned int nb, int *len)
+{
+	if (nb >= 10)
+	{
+		ft_putunsigned(nb / 10, len);
+		ft_putunsigned(nb % 10, len);
+	}
+	else
+	{
+		ft_putchar(nb + 48, len);
+	}
+}

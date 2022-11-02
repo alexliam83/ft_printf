@@ -6,7 +6,7 @@
 /*   By: alejandg <alejandg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:56:33 by alejandg          #+#    #+#             */
-/*   Updated: 2022/10/31 12:45:47 by alejandg         ###   ########.fr       */
+/*   Updated: 2022/11/02 10:20:20 by alejandg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_select(va_list args, const char format, int *len)
 	if (format == '%')
 		ft_putchar('%', len);
 	if (format == 'u')
-		ft_changesign(va_arg(args, unsigned int), len);
+		ft_putunsigned(va_arg(args, unsigned int), len);
 	if (format == 'x')
 		ft_puthex(va_arg(args, unsigned int), "0123456789abcdef", len);
 	if (format == 'p')
@@ -63,7 +63,6 @@ int	ft_printf(const char *pepito, ...)
 
 // int	main(int nb, char **str)
 // {
-	
 // 	ft_printf("%i", ft_printf("%u", "-10"));
 // 	printf("\n");
 // 	printf("%i", printf("%u", "-10"));
